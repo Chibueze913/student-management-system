@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+</head>
+<body>
+    <h1>Registered Students</h1>
+
+    <p><a href="{% url 'register_student' %}">Register another student</a></p>
+
+    {% if students %}
+        <ul>
+            {% for student in students %}
+                <li>
+                    {{ student.student_id }} — {{ student.full_name }} —
+                    {{ student.email }} — {{ student.course }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No students have been registered yet.</p>
+    {% endif %}
+</body>
+</html>
